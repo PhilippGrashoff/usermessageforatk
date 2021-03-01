@@ -381,12 +381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PhilippGrashoff/mtomforatk.git",
-                "reference": "562759f110c843c8754a6250d4510f92be91944b"
+                "reference": "8fb1204d4c429db6846b4c8ee606264481dddab7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PhilippGrashoff/mtomforatk/zipball/562759f110c843c8754a6250d4510f92be91944b",
-                "reference": "562759f110c843c8754a6250d4510f92be91944b",
+                "url": "https://api.github.com/repos/PhilippGrashoff/mtomforatk/zipball/8fb1204d4c429db6846b4c8ee606264481dddab7",
+                "reference": "8fb1204d4c429db6846b4c8ee606264481dddab7",
                 "shasum": ""
             },
             "require": {
@@ -404,7 +404,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2020-10-24T14:26:24+00:00"
+            "time": "2021-03-01T11:50:26+00:00"
         },
         {
             "name": "philippgrashoff/traitsforatkdata",

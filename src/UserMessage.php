@@ -81,6 +81,7 @@ class UserMessage extends Model
         $this->addMToMReferenceAndDeleteHook(
             UserMessageToUser::class,
             '',
+            [],
             ['userModel' => $this->userModel]
         );
     }

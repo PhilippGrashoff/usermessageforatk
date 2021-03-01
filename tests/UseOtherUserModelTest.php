@@ -30,6 +30,12 @@ class UseOtherUserModelTest extends TestCase
 
     public function testUseOtherUserModel(): void
     {
-        $message1 = new Message();
+        $message1 = new UserMessage($this->persistence, ['userModel' => OtherUserModel::class]);
+        $message1->save();
+        $userModelOfReference = $message1->ref(UserMessageToUser::class)->ref('user_id');
+        self::assertInstanceOf(
+            OtherUserModel::class,
+            $userModelOfReference
+        );
     }
 }
