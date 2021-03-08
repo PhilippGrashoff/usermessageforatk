@@ -3,6 +3,7 @@
 namespace usermessageforatk\tests\phpunit;
 
 use atk4\login\Auth;
+use atk4\ui\Layout;
 use atk4\ui\Layout\Generic;
 use traitsforatkdata\TestCase;
 use usermessageforatk\tests\testclasses\AppWithTrait;
@@ -32,7 +33,7 @@ class ShowUserMessageTraitTest extends TestCase
         $this->user->save();
         $this->app = new AppWithTrait(['always_run' => false]);
         $this->app->db = $this->persistence;
-        $this->app->initLayout([Generic::class]);
+        $this->app->initLayout([Layout::class]);
         $this->app->auth = new Auth();
     }
 
