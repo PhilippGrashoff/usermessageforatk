@@ -84,7 +84,7 @@ class UserMessage extends Model
         );
 
         //show older messages first if there is more than one to show to user
-        $this->setOrder(['created_date' =>  'ASC']);
+        $this->setOrder(['created_date' => 'ASC']);
     }
 
     public function addUserCondition($user): void

@@ -2,7 +2,6 @@
 
 namespace usermessageforatk\tests\phpunit;
 
-use atk4\data\Exception;
 use traitsforatkdata\TestCase;
 use usermessageforatk\tests\testclasses\OtherUserModel;
 use usermessageforatk\UserMessage;
