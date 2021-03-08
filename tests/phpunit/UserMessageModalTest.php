@@ -104,5 +104,20 @@ class UserMessageModalTest extends TestCase
         self::assertTrue(
             $userMessage->hasMToMRelation(new UserMessageToUser($this->persistence), $this->user)
         );
+        self::assertTrue(
+            $_SESSION['MESSAGES_FOR_USER_DISPLAYED']
+        );
+    }
+
+    public function testSessionParamSetAlsoOnNoNewMessage(): void
+    {
+        $_SESSION['MESSAGES_FOR_USER_DISPLAYED'] = false;
+
+        $modal = $this->app->addUserMessageModal();
+        $modal->setUserModel($this->user);
+        $modal->renderView();
+        self::assertTrue(
+            $_SESSION['MESSAGES_FOR_USER_DISPLAYED']
+        );
     }
 }
