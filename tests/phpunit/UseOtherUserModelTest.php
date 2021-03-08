@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace usermessageforatk\tests;
+namespace usermessageforatk\tests\phpunit;
 
 use atk4\data\Exception;
 use traitsforatkdata\TestCase;

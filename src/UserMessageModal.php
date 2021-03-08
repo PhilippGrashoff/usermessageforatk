@@ -4,7 +4,7 @@ namespace usermessageforatk;
 
 use atk4\ui\Button;
 use atk4\ui\Exception;
-use atk4\ui\jQuery;
+use atk4\ui\Jquery;
 use atk4\ui\jsExpression;
 use atk4\ui\Modal;
 use DateTimeInterface;
@@ -19,64 +19,61 @@ class UserMessageModal extends Modal
     //can the modal only be closed by the "Read it" button?
     public $forceApproveRead;
 
-    public $param1;
-    public $param2;
-    public $param3;
+    protected $userModel;
 
-    //if there is more than one message, show them in a "row"? TODO: Currently not implemented!
-    public $showMultiple = false;
+    protected function init(): void
+    {
+        parent::init();
+        $this->model = new UserMessage($this->app->db);
+    }
+
+    public function setUserModel($userModel): void
+    {
+        $this->userModel = $userModel;
+    }
 
     public function renderView(): void
     {
-        if (!$this->app->getAuth()->user->loaded()) {
-            throw new Exception(__CLASS__ . ' can only be used with a logged in user');
+        if (
+            !$this->userModel
+            || !$this->userModel->loaded()
+        ) {
+            throw new Exception(__CLASS__ . ' can only be used with a loaded user model');
         }
 
-        $i = 0;
-        $messages = (new UserMessage($this->app->db))
-            ->getUnreadMessagesForUser(
-                $this->app->getAuth()->user,
-                $this->param1,
-                $this->param2,
-                $this->param3,
-                (new \DateTime())->modify('-30 Days')
-            );
-        foreach ($messages as $message) {
-            $i++;
-            if ($i > 1 && !$this->showMultiple) {
-                break;
-            }
-            $this->_addMessage($message);
+        $this->model->addUserCondition($this->userModel);
+        $this->model->tryLoadAny();
+        if (!$this->model->loaded()) {
+            $_SESSION['MESSAGES_FOR_USER_DISPLAYED'] = true;
+            return;
         }
+
+        $this->title = $this->model->get('created_date') instanceof DateTimeInterface ?
+            $this->model->get('created_date')->format('d.m.Y') . ' ' : '';
+
+        $this->title .= $this->model->get('title');
+        $this->addScrolling();
+
+        if (
+            $this->forceApproveRead
+            || $this->model->get('needs_user_confirm')
+        ) {
+            $this->notClosable();
+        }
+
+        if ($this->model->get('is_html')) {
+            $this->template->setHTML('Content', $this->model->get('text'));
+        } else {
+            $this->template->set('Content', $this->model->get('text'));
+        }
+
+        $this->_addMessageReadButton($this->model);
+        $this->js(true, $this->show());
 
         parent::renderView();
     }
 
-    protected function _addMessage(UserMessage $message)
-    {
-        $this->title = $message->get('created_date') instanceof DateTimeInterface ? $message->get(
-                'created_date'
-            )->format('d.m.Y') . ' ' : '';
-        $this->title .= $message->get('title');
-        $this->addScrolling();
-        if (
-            $this->forceApproveRead
-            || $message->get('needs_user_confirm')
-        ) {
-            $this->notClosable();
-        }
-        $this->addClass('fullHeightModalWithButtons');
-        if ($message->get('is_html')) {
-            $this->template->setHTML('Content', $message->get('text'));
-        } else {
-            $this->template->set('Content', $message->get('text'));
-        }
-
-        $this->_addMessageReadButton($message);
-        $this->js(true, $this->show());
-    }
-
-    protected function _addMessageReadButton(UserMessage $message)
+    protected function _addMessageReadButton(UserMessage $message): void
     {
         $b = new Button();
         $b->set($this->labelMessageRead)->addClass('green ok');
@@ -84,16 +81,16 @@ class UserMessageModal extends Modal
         $this->addButtonAction($b);
         $b->on(
             'click',
-            function ($e, $mfu_id) {
+            function ($e, $messageId) {
                 $mfu = new UserMessage($this->app->db);
-                $mfu->load($mfu_id);
-                $mfu->markAsReadForUser($this->app->getAuth()->user);
-                $_SESSION['MESSAGES_FOR_USER_DISPLAYED'] = 1;
+                $mfu->load($messageId);
+                $mfu->markAsReadForUser($this->userModel);
+                $_SESSION['MESSAGES_FOR_USER_DISPLAYED'] = true;
                 return $this->hide();
             },
             [
                 'args' => [
-                    (new jQuery(new jsExpression('this')))->data('id'),
+                    (new Jquery(new jsExpression('this')))->data('id'),
                 ]
             ]
         );

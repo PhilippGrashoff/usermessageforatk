@@ -1,5 +1,5 @@
 {
-  "name": "philippgrashoff/settingsforatk",
+  "name": "philippgrashoff/usermessageforatk",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
@@ -10,13 +10,14 @@
   "require": {
     "atk4/data": "2.3.*",
     "atk4/core": "2.3.*",
+    "atk4/ui": "2.3.*",
+    "atk4/login": "2.3.*",
     "philippgrashoff/traitsforatkdata": "master",
-    "philippgrashoff/mtomforatk": "master",
-    "ext-sodium": "*",
-    "ext-mbstring": "*"
+    "philippgrashoff/mtomforatk": "master"
   },
   "require-dev": {
-    "phpunit/phpunit": ">8"
+    "phpunit/phpunit": ">9",
+    "php-webdriver/webdriver": "^1.9.0"
   },
   "autoload": {
     "psr-4": {
