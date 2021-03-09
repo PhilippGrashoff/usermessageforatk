@@ -3,6 +3,7 @@
 namespace usermessageforatk;
 
 use atk4\ui\Button;
+use atk4\data\Model;
 use atk4\ui\Exception;
 use atk4\ui\Jquery;
 use atk4\ui\jsExpression;
@@ -21,27 +22,30 @@ class UserMessageModal extends Modal
 
     protected $userModel;
 
+    protected $activeUser;
+
+
     protected function init(): void
     {
         parent::init();
         $this->model = new UserMessage($this->app->db);
     }
 
-    public function setUserModel($userModel): void
+    public function setActiveUser(Model $user): void
     {
-        $this->userModel = $userModel;
+        $this->activeUser = $user;
     }
 
     public function renderView(): void
     {
         if (
-            !$this->userModel
-            || !$this->userModel->loaded()
+            !$this->activeUser
+            || !$this->activeUser->loaded()
         ) {
             throw new Exception(__CLASS__ . ' can only be used with a loaded user model');
         }
 
-        $this->model->addUserCondition($this->userModel);
+        $this->model->addUserCondition($this->activeUser);
         $this->model->tryLoadAny();
         if (!$this->model->loaded()) {
             $_SESSION['MESSAGES_FOR_USER_DISPLAYED'] = true;
@@ -82,9 +86,9 @@ class UserMessageModal extends Modal
         $b->on(
             'click',
             function ($e, $messageId) {
-                $mfu = new UserMessage($this->app->db);
+                $mfu = new UserMessage($this->app->db, ['userModel' => $this->userModel]);
                 $mfu->load($messageId);
-                $mfu->markAsReadForUser($this->userModel);
+                $mfu->markAsReadForUser($this->activeUser);
                 $_SESSION['MESSAGES_FOR_USER_DISPLAYED'] = true;
                 return $this->hide();
             },

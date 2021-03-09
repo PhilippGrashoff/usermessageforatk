@@ -50,7 +50,7 @@ class UserMessageModalTest extends TestCase
         $userMessage->save();
 
         $modal = UserMessageModal::addTo($this->app);
-        $modal->setUserModel($this->user);
+        $modal->setActiveUser($this->user);
         $modal->renderView();
         self::assertTrue(true);
     }
@@ -58,7 +58,7 @@ class UserMessageModalTest extends TestCase
     public function testReturnOnNoMessageLoaded(): void
     {
         $modal = UserMessageModal::addTo($this->app);
-        $modal->setUserModel($this->user);
+        $modal->setActiveUser($this->user);
         $modal->renderView();
         self::assertTrue(true);
     }
@@ -71,7 +71,7 @@ class UserMessageModalTest extends TestCase
         $userMessage->save();
 
         $modal = UserMessageModal::addTo($this->app);
-        $modal->setUserModel($this->user);
+        $modal->setActiveUser($this->user);
         $modal->renderView();
         self::assertTrue(true);
     }
@@ -88,7 +88,7 @@ class UserMessageModalTest extends TestCase
             UserMessageModal::class,
             $modal
         );
-        $modal->setUserModel($this->user);
+        $modal->setActiveUser($this->user);
 
         self::assertFalse(
             $userMessage->hasMToMRelation(new UserMessageToUser($this->persistence), $this->user)
@@ -114,7 +114,7 @@ class UserMessageModalTest extends TestCase
         $_SESSION['MESSAGES_FOR_USER_DISPLAYED'] = false;
 
         $modal = $this->app->addUserMessageModal();
-        $modal->setUserModel($this->user);
+        $modal->setActiveUser($this->user);
         $modal->renderView();
         self::assertTrue(
             $_SESSION['MESSAGES_FOR_USER_DISPLAYED']
