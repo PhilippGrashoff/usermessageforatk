@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bd93bd560448d631ea96f0fcf6e8cd6",
+    "content-hash": "cf24c44e2166aa5418b6c3558d151451",
     "packages": [
         {
             "name": "atk4/core",
-            "version": "2.3.0",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/core.git",
-                "reference": "ed188892088b247b282610778935bccb072d61a3"
+                "reference": "b82b49d855d316119edcf86e6f39672d797034f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/core/zipball/ed188892088b247b282610778935bccb072d61a3",
-                "reference": "ed188892088b247b282610778935bccb072d61a3",
+                "url": "https://api.github.com/repos/atk4/core/zipball/b82b49d855d316119edcf86e6f39672d797034f8",
+                "reference": "b82b49d855d316119edcf86e6f39672d797034f8",
                 "shasum": ""
             },
             "require": {
@@ -29,7 +29,7 @@
                 "symfony/yaml": ">=3.4"
             },
             "require-dev": {
-                "atk4/data": "dev-develop",
+                "atk4/data": "~2.3.0",
                 "friendsofphp/php-cs-fixer": "^2.16",
                 "johnkary/phpunit-speedtrap": "^3.2",
                 "phpunit/phpunit": ">=9.0",
@@ -38,7 +38,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "atk4\\core\\": "src/"
+                    "atk4\\core\\": "src/",
+                    "Atk4\\Core\\": "srcAtk4/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -72,33 +73,30 @@
                 "php",
                 "traits"
             ],
-            "time": "2020-10-06T09:10:39+00:00"
+            "time": "2020-12-04T01:41:39+00:00"
         },
         {
             "name": "atk4/data",
-            "version": "2.3.0",
+            "version": "2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/data.git",
-                "reference": "e816a9331236ae77d4e33e3eaea6b208bbef4507"
+                "reference": "febfc7c5f5b63675847b6662e021227e3872463f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/data/zipball/e816a9331236ae77d4e33e3eaea6b208bbef4507",
-                "reference": "e816a9331236ae77d4e33e3eaea6b208bbef4507",
+                "url": "https://api.github.com/repos/atk4/data/zipball/febfc7c5f5b63675847b6662e021227e3872463f",
+                "reference": "febfc7c5f5b63675847b6662e021227e3872463f",
                 "shasum": ""
             },
             "require": {
-                "atk4/core": "^2.3.0",
-                "atk4/dsql": "^2.3.0",
+                "atk4/core": "~2.3.5",
+                "atk4/dsql": "~2.3.5",
                 "ext-intl": "*",
                 "php": ">=7.3.0"
             },
-            "replace": {
-                "atk4/data": "self.version"
-            },
             "require-dev": {
-                "atk4/schema": "^2.3.0",
+                "atk4/schema": "~2.3.0",
                 "friendsofphp/php-cs-fixer": "^2.16",
                 "johnkary/phpunit-speedtrap": "^3.2",
                 "phpunit/phpcov": "*",
@@ -107,7 +105,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "atk4\\data\\": "src/"
+                    "atk4\\data\\": "src/",
+                    "Atk4\\Data\\": "srcAtk4/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -144,24 +143,24 @@
                 "query",
                 "sql"
             ],
-            "time": "2020-10-06T09:36:24+00:00"
+            "time": "2020-12-11T13:54:57+00:00"
         },
         {
             "name": "atk4/dsql",
-            "version": "2.3.1",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/dsql.git",
-                "reference": "886b7a7f43c27df5f2e7410a06779f331e27e2a5"
+                "reference": "429f57515145a72ba0356a84d88a81c7d06481e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/dsql/zipball/886b7a7f43c27df5f2e7410a06779f331e27e2a5",
-                "reference": "886b7a7f43c27df5f2e7410a06779f331e27e2a5",
+                "url": "https://api.github.com/repos/atk4/dsql/zipball/429f57515145a72ba0356a84d88a81c7d06481e6",
+                "reference": "429f57515145a72ba0356a84d88a81c7d06481e6",
                 "shasum": ""
             },
             "require": {
-                "atk4/core": "~2.3.0",
+                "atk4/core": "~2.3.5",
                 "php": ">=7.3.0"
             },
             "require-dev": {
@@ -176,7 +175,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "atk4\\dsql\\": "src/"
+                    "atk4\\dsql\\": "src/",
+                    "Atk4\\Dsql\\": "srcAtk4/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -206,64 +206,7 @@
                 "orm",
                 "sql"
             ],
-            "time": "2020-10-13T23:02:15+00:00"
-        },
-        {
-            "name": "atk4/login",
-            "version": "2.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/atk4/login.git",
-                "reference": "d1eb9b78ec399387f6f83bf6765e66729b982eed"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/atk4/login/zipball/d1eb9b78ec399387f6f83bf6765e66729b982eed",
-                "reference": "d1eb9b78ec399387f6f83bf6765e66729b982eed",
-                "shasum": ""
-            },
-            "require": {
-                "atk4/data": "~2.3.0",
-                "atk4/ui": "~2.3.0",
-                "php": ">=7.3.0"
-            },
-            "require-dev": {
-                "atk4/schema": "~2.3.0",
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "phpunit/phpunit": "*",
-                "symfony/contracts": ">=1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "atk4\\login\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Romans Malinovskis",
-                    "email": "romans@agiletoolkit.org",
-                    "homepage": "https://nearly.guru/"
-                }
-            ],
-            "description": "Login and User module for Agile UI",
-            "homepage": "https://github.com/atk4/login",
-            "keywords": [
-                "Agile",
-                "acl",
-                "agile ui",
-                "atk4",
-                "auth",
-                "data",
-                "framework",
-                "login",
-                "user"
-            ],
-            "time": "2020-10-14T20:47:36+00:00"
+            "time": "2020-12-04T01:49:16+00:00"
         },
         {
             "name": "atk4/schema",
@@ -341,21 +284,21 @@
         },
         {
             "name": "atk4/ui",
-            "version": "2.3.1",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/ui.git",
-                "reference": "4f20f83004854414fa89cc5cba3c291abb674cd2"
+                "reference": "8ffeb32dc3517c9053eab750465dfd7c5b01109c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/ui/zipball/4f20f83004854414fa89cc5cba3c291abb674cd2",
-                "reference": "4f20f83004854414fa89cc5cba3c291abb674cd2",
+                "url": "https://api.github.com/repos/atk4/ui/zipball/8ffeb32dc3517c9053eab750465dfd7c5b01109c",
+                "reference": "8ffeb32dc3517c9053eab750465dfd7c5b01109c",
                 "shasum": ""
             },
             "require": {
-                "atk4/core": "~2.3.0",
-                "atk4/data": "~2.3.0",
+                "atk4/core": "~2.3.5",
+                "atk4/data": "~2.3.5",
                 "ext-json": "*",
                 "php": ">=7.3.0"
             },
@@ -374,7 +317,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "atk4\\ui\\": "src/"
+                    "atk4\\ui\\": "src/",
+                    "Atk4\\Ui\\": "srcAtk4/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -430,7 +374,7 @@
                 "web",
                 "widget"
             ],
-            "time": "2020-10-13T23:06:35+00:00"
+            "time": "2020-12-04T01:51:07+00:00"
         },
         {
             "name": "philippgrashoff/mtomforatk",
@@ -438,17 +382,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PhilippGrashoff/mtomforatk.git",
-                "reference": "8fb1204d4c429db6846b4c8ee606264481dddab7"
+                "reference": "38f5dbe828e3df25cabe2f3afe04d1c83b103a2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PhilippGrashoff/mtomforatk/zipball/8fb1204d4c429db6846b4c8ee606264481dddab7",
-                "reference": "8fb1204d4c429db6846b4c8ee606264481dddab7",
+                "url": "https://api.github.com/repos/PhilippGrashoff/mtomforatk/zipball/38f5dbe828e3df25cabe2f3afe04d1c83b103a2e",
+                "reference": "38f5dbe828e3df25cabe2f3afe04d1c83b103a2e",
                 "shasum": ""
             },
             "require": {
-                "atk4/core": "2.3.0",
-                "atk4/data": "2.3.0",
+                "atk4/core": "2.3.5",
+                "atk4/data": "2.3.6",
                 "philippgrashoff/traitsforatkdata": "dev-master"
             },
             "require-dev": {
@@ -461,7 +405,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2021-03-01T11:50:26+00:00"
+            "time": "2021-03-11T11:03:50+00:00"
         },
         {
             "name": "philippgrashoff/traitsforatkdata",
@@ -469,19 +413,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PhilippGrashoff/traitsforatkdata.git",
-                "reference": "8beac835af3dea489b4561690e55765b9a5f8a8d"
+                "reference": "38cd42f856d59023835bc452a7fa78850c1e577f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PhilippGrashoff/traitsforatkdata/zipball/8beac835af3dea489b4561690e55765b9a5f8a8d",
-                "reference": "8beac835af3dea489b4561690e55765b9a5f8a8d",
+                "url": "https://api.github.com/repos/PhilippGrashoff/traitsforatkdata/zipball/38cd42f856d59023835bc452a7fa78850c1e577f",
+                "reference": "38cd42f856d59023835bc452a7fa78850c1e577f",
                 "shasum": ""
             },
             "require": {
-                "atk4/core": "2.3.*",
-                "atk4/data": "2.3.*",
-                "atk4/schema": "2.3.*",
-                "atk4/ui": "2.3.*",
+                "atk4/core": "2.3.5",
+                "atk4/data": "2.3.6",
+                "atk4/schema": "2.3.1",
+                "atk4/ui": "2.3.5",
                 "ext-mbstring": "*",
                 "ext-sodium": "*"
             },
@@ -495,7 +439,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2021-02-20T15:38:32+00:00"
+            "time": "2021-03-11T10:57:14+00:00"
         },
         {
             "name": "psr/log",
@@ -787,16 +731,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.2.4",
+            "version": "v5.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "7d6ae0cce3c33965af681a4355f1c4de326ed277"
+                "reference": "298a08ddda623485208506fcee08817807a251dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/7d6ae0cce3c33965af681a4355f1c4de326ed277",
-                "reference": "7d6ae0cce3c33965af681a4355f1c4de326ed277",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/298a08ddda623485208506fcee08817807a251dd",
+                "reference": "298a08ddda623485208506fcee08817807a251dd",
                 "shasum": ""
             },
             "require": {
@@ -841,10 +785,67 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
-            "time": "2021-02-22T15:48:39+00:00"
+            "time": "2021-03-06T07:59:01+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "atk4/login",
+            "version": "2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atk4/login.git",
+                "reference": "d1eb9b78ec399387f6f83bf6765e66729b982eed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atk4/login/zipball/d1eb9b78ec399387f6f83bf6765e66729b982eed",
+                "reference": "d1eb9b78ec399387f6f83bf6765e66729b982eed",
+                "shasum": ""
+            },
+            "require": {
+                "atk4/data": "~2.3.0",
+                "atk4/ui": "~2.3.0",
+                "php": ">=7.3.0"
+            },
+            "require-dev": {
+                "atk4/schema": "~2.3.0",
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "phpunit/phpunit": "*",
+                "symfony/contracts": ">=1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "atk4\\login\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Romans Malinovskis",
+                    "email": "romans@agiletoolkit.org",
+                    "homepage": "https://nearly.guru/"
+                }
+            ],
+            "description": "Login and User module for Agile UI",
+            "homepage": "https://github.com/atk4/login",
+            "keywords": [
+                "Agile",
+                "acl",
+                "agile ui",
+                "atk4",
+                "auth",
+                "data",
+                "framework",
+                "login",
+                "user"
+            ],
+            "time": "2020-10-14T20:47:36+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.4.0",
@@ -2686,30 +2687,35 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.9.1",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
+                "reference": "6964c76c7804814a842473e0c8fd15bab0f18e25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
-                "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/6964c76c7804814a842473e0c8fd15bab0f18e25",
+                "reference": "6964c76c7804814a842473e0c8fd15bab0f18e25",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0 || ^8.0",
+                "php": "^7.2 || ^8.0",
                 "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
                 "phpstan/phpstan": "<0.12.20",
-                "vimeo/psalm": "<3.9.1"
+                "vimeo/psalm": "<4.6.1 || 4.6.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.36 || ^7.5.13"
+                "phpunit/phpunit": "^8.5.13"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Webmozart\\Assert\\": "src/"
@@ -2731,7 +2737,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2020-07-08T17:02:28+00:00"
+            "time": "2021-03-09T10:59:23+00:00"
         }
     ],
     "aliases": [],
