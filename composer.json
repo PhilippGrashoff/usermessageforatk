@@ -10,7 +10,6 @@
   },
   "require": {
     "atk4/data": "2.3.6",
-    "atk4/core": "2.3.*",
     "atk4/ui": "2.3.5",
     "philippgrashoff/mtomforatk": "2.3.*"
   },
