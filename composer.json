@@ -11,11 +11,11 @@
   "require": {
     "atk4/data": "2.4.*",
     "atk4/ui": "2.4.*",
-    "philippgrashoff/traitsforatkdata": "master",
-    "philippgrashoff/mtomforatk": "master"
+    "philippgrashoff/traitsforatkdata": "2.4.*",
+    "philippgrashoff/mtomforatk": "2.4.*"
   },
   "require-dev": {
-    "atk4/login": "dev-develop as 2.4.0",
+    "atk4/login": "2.4.*",
     "phpunit/phpunit": ">9",
     "php-webdriver/webdriver": "^1.9.0"
   },
