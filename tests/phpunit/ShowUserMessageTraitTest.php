@@ -2,8 +2,8 @@
 
 namespace usermessageforatk\tests\phpunit;
 
-use atk4\login\Auth;
-use atk4\ui\Layout;
+use Atk4\Login\Auth;
+use Atk4\Ui\Layout;
 use traitsforatkdata\TestCase;
 use usermessageforatk\tests\testclasses\AppWithTrait;
 use usermessageforatk\User;

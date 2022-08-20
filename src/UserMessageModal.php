@@ -2,12 +2,12 @@
 
 namespace usermessageforatk;
 
-use atk4\ui\Button;
-use atk4\data\Model;
-use atk4\ui\Exception;
-use atk4\ui\Jquery;
-use atk4\ui\jsExpression;
-use atk4\ui\Modal;
+use Atk4\Ui\Button;
+use Atk4\Ui\Jquery;
+use Atk4\Data\Model;
+use Atk4\Ui\Exception;
+use Atk4\Ui\jsExpression;
+use Atk4\Ui\Modal;
 use DateTimeInterface;
 
 /**
@@ -16,6 +16,8 @@ use DateTimeInterface;
 class UserMessageModal extends Modal
 {
     public $labelMessageRead = 'Benachrichtigung gelesen';
+
+    public ?Button $markAsReadButton = null;
 
     //can the modal only be closed by the "Read it" button?
     public $forceApproveRead;
@@ -28,7 +30,7 @@ class UserMessageModal extends Modal
     protected function init(): void
     {
         parent::init();
-        $this->model = new UserMessage($this->app->db);
+        $this->model = new UserMessage($this->getApp()->db);
     }
 
     public function setActiveUser(Model $user): void
@@ -66,7 +68,7 @@ class UserMessageModal extends Modal
         }
 
         if ($this->model->get('is_html')) {
-            $this->template->setHTML('Content', $this->model->get('text'));
+            $this->template->dangerouslySetHtml('Content', $this->model->get('text'));
         } else {
             $this->template->set('Content', $this->model->get('text'));
         }
@@ -79,14 +81,14 @@ class UserMessageModal extends Modal
 
     protected function _addMessageReadButton(UserMessage $message): void
     {
-        $b = new Button();
-        $b->set($this->labelMessageRead)->addClass('green ok');
-        $b->setAttr('data-id', $message->get('id'));
-        $this->addButtonAction($b);
-        $b->on(
+        $this->markAsReadButton = new Button();
+        $this->markAsReadButton->set($this->labelMessageRead)->addClass('green ok');
+        $this->markAsReadButton->setAttr('data-id', $message->get('id'));
+        $this->addButtonAction($this->markAsReadButton);
+        $this->markAsReadButton->on(
             'click',
             function ($e, $messageId) {
-                $mfu = new UserMessage($this->app->db, ['userModel' => $this->userModel]);
+                $mfu = new UserMessage($this->getApp()->db, ['userModel' => $this->userModel]);
                 $mfu->load($messageId);
                 $mfu->markAsReadForUser($this->activeUser);
                 $_SESSION['MESSAGES_FOR_USER_DISPLAYED'] = true;

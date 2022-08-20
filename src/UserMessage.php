@@ -43,7 +43,7 @@ class UserMessage extends Model
                 //HTML or Text Content of the message
                 [
                     'text',
-                    'type' => 'Text',
+                    'type' => 'text',
                     'caption' => 'Nachricht'
                 ],
                 //can be used by UI to force user to click "I have read it!" button instead of just closing the modal
